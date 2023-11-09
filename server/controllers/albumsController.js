@@ -19,16 +19,7 @@ const index = async (req, res) => {
                 };
             }));
 
-            return {
-                _id: album._id,
-                name: album.name,
-                artist: album.artist,
-                count: album.count,
-                image: album.image,
-                total_duration: album.total_duration,
-                songs: songsInfo,
-                created_at: album.created_at
-            };
+            return {...albums, songs: songsInfo,};
         }));
 
         res.status(200).json({ albums: albumsWithSongs });

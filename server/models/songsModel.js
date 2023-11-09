@@ -1,27 +1,31 @@
 import mongoose from "mongoose";
 
 const SongsModel = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    artist: {
-        type: String,
-        required: true,
-        trim: true
-    },
+
+    platform: String,
+    type: String,
+    id: String,
+    title: String,
+    artist: String,
+    artistLink: String,
     album: {
-        type: mongoose.Schema.Types.Array, 
+        type: mongoose.Schema.Types.Array,
         ref: 'albums'
     },
+    albumLink: String,
+    isrc: String,
+    duration: Number,
+    trackLink: String,
+    preview: String,
+    picture: String,
+    addedDate: Date,
+    position: Number,
+    shareUrls: [String],
     image: {
         type: String,
-        required: true
     },
     duration: {
         type: String,
-        required: false
     },
     created_at: {
         type: Date,
