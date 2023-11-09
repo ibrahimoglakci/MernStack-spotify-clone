@@ -1,17 +1,13 @@
 import mongoose from "mongoose";
 
-const SongsModel = new mongoose.Schema({
-
+const PlaylistModel = new mongoose.Schema({
     platform: String,
     type: String,
     id: String,
     title: String,
     artist: String,
     artistLink: String,
-    album: {
-        type: mongoose.Schema.Types.Array,
-        ref: 'albums'
-    },
+    album: String,
     albumLink: String,
     isrc: String,
     duration: Number,
@@ -20,11 +16,9 @@ const SongsModel = new mongoose.Schema({
     picture: String,
     addedDate: Date,
     position: Number,
-    shareUrls: [String],
-    created_at: {
-        type: Date,
-        default: new Date()
-    }
+    shareUrls: [String]
+    
 });
 
-export default mongoose.model("songs", SongsModel);
+
+export default mongoose.model("playlists", ArtistModel);
