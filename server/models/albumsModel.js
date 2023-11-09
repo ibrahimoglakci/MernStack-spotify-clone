@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import SongsModel from "./songsModel.js";
 
-const SongsModel = new mongoose.Schema({
+const AlbumModel = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -11,22 +12,29 @@ const SongsModel = new mongoose.Schema({
         required: true,
         trim: true
     },
-    album: {
-        type: mongoose.Schema.Types.Array, 
-        ref: 'albums'
+    count: {
+        type: String,
+        required: false,
+        trim: true
     },
     image: {
         type: String,
         required: true
     },
-    duration: {
+    total_duration: {
         type: String,
         required: false
     },
+    songs: [{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'songs' 
+    }],
+
     created_at: {
         type: Date,
         default: new Date()
+
     }
 });
 
-export default mongoose.model("songs", SongsModel);
+export default mongoose.model("albums", AlbumModel);
